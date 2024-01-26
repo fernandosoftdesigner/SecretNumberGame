@@ -1,4 +1,4 @@
-let secretNumber = generateSecretNumber;
+let secretNumber = generateSecretNumber();
 
 function assignTextElement(element, text) {
     let elementHTML = document.querySelector(element);
@@ -10,6 +10,10 @@ function userAttempt() {
     alert('Click from the button');
     return;
 
+}
+
+function generateSecretNumber() {
+    return Math.floor(Math.random()*10)+1;
 }
 
 assignTextElement('h1', 'Secret Number');
