@@ -1,10 +1,14 @@
+let secretNumber = generateSecretNumber;
+
 function assignTextElement(element, text) {
     let elementHTML = document.querySelector(element);
      elementHTML.innerHTML = text;
+     return;
 }
 
 function userAttempt() {
     alert('Click from the button');
+    return;
 
 }
 
