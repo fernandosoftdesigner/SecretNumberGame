@@ -6,8 +6,13 @@ function assignTextElement(element, text) {
      return;
 }
 
-function userAttempt() {
-    alert('Click from the button');
+function verifyAttempt() {
+    let userNumber = parseInt(document.getElementById('userValue').value);
+    console.log(typeof(userNumber));
+    console.log(secretNumber);
+    console.log(typeof(secretNumber));
+    console.log(userNumber);
+    console.log(userNumber === secretNumber);
     return;
 
 }
