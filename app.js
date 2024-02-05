@@ -1,4 +1,4 @@
-let secretNumber = generateSecretNumber();
+let secretNumber = 0;
 let tries = 1;
 console.log(secretNumber);
 function assignTextElement(element, text) {
@@ -35,5 +35,24 @@ function generateSecretNumber() {
     return Math.floor(Math.random()*10)+1;
 }
 
-assignTextElement('h1', 'Secret Number');
-assignTextElement('p', 'Insert a number from 1 to 10');
+function initialConditions() {
+    assignTextElement('h1', 'Secret Number');
+    assignTextElement('p', 'Insert a number from 1 to 10');
+    secretNumber = generateSecretNumber();
+    tries = 1;
+}
+
+function restartGame(){
+    //cleanBox
+    cleanBox();
+    //indicate message of numberInterval
+    //generatesecretNumber
+    //start the number of attempts
+    initialConditions();
+    //disable button new game
+    document.querySelector('#restart').setAttribute('disabled', 'true');
+   
+}
+   initialConditions();
+
+
