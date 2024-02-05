@@ -12,16 +12,23 @@ function verifyAttempt() {
     console.log(tries);
     if(userNumber === secretNumber) {
         assignTextElement('p', `You got the right number in  ${tries} ${(tries === 1) ? 'attempt' : 'attempts'}`);
+        document.getElementById('restart').removeAttribute('disabled');
     } else {
         if(userNumber > secretNumber) {
-            assignTextElement('p', 'The secret number is greater than');
+            assignTextElement('p', 'The secret number is less');
         }  else {
-            assignTextElement('p', 'The secret number is less than');
+            assignTextElement('p', 'The secret number is greater');
         }
         tries++;
+        cleanBox();
       }
     return;
 
+}
+
+
+function cleanBox() {
+    document.querySelector('#userValue').value = '';
 }
 
 function generateSecretNumber() {
