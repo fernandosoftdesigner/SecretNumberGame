@@ -1,5 +1,6 @@
 let secretNumber = 0;
 let tries = 1;
+let raffleNumberList = [];
 console.log(secretNumber);
 function assignTextElement(element, text) {
     let elementHTML = document.querySelector(element);
@@ -32,7 +33,16 @@ function cleanBox() {
 }
 
 function generateSecretNumber() {
-    return Math.floor(Math.random()*10)+1;
+   let generatedNumber = Math.floor(Math.random()*10)+1;
+   console.log(generatedNumber);
+   console.log(raffleNumberList);
+   //if generated number is on raffle number list 
+   if (raffleNumberList.includes(generatedNumber)) {
+        return generateSecretNumber();
+   } else {
+        raffleNumberList.push(generatedNumber);
+        return generatedNumber;
+   }
 }
 
 function initialConditions() {
