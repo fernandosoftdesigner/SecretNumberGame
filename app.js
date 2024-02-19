@@ -1,6 +1,7 @@
 let secretNumber = 0;
 let tries = 1;
 let raffleNumberList = [];
+let maxNumber = 10;
 console.log(secretNumber);
 function assignTextElement(element, text) {
     let elementHTML = document.querySelector(element);
@@ -33,9 +34,13 @@ function cleanBox() {
 }
 
 function generateSecretNumber() {
-   let generatedNumber = Math.floor(Math.random()*10)+1;
+   let generatedNumber = Math.floor(Math.random()*maxNumber)+1;
    console.log(generatedNumber);
    console.log(raffleNumberList);
+   //if already raffle all the numbers
+   if (raffleNumberList.length == maxNumber) {
+    assignTextElement('p', 'Already ruffle all possible numbers');
+   }else {
    //if generated number is on raffle number list 
    if (raffleNumberList.includes(generatedNumber)) {
         return generateSecretNumber();
@@ -43,11 +48,12 @@ function generateSecretNumber() {
         raffleNumberList.push(generatedNumber);
         return generatedNumber;
    }
+    }
 }
 
 function initialConditions() {
     assignTextElement('h1', 'Secret Number');
-    assignTextElement('p', 'Insert a number from 1 to 10');
+    assignTextElement('p', `Insert a number from 1 to ${maxNumber}`);
     secretNumber = generateSecretNumber();
     tries = 1;
 }
